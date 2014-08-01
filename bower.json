@@ -1,0 +1,25 @@
+{
+    "name": "bs-timeline",
+    "version": "0.0.0",
+    "description": "Element providing a responsive timeline",
+	"keywords": "bootstrap, polymer, web-components, timeline",
+    "license": "MIT",
+	 "authors": [
+    	"Johannes Hund (h0ru5) <johannes.hund@gmail.com>"
+  	],
+    "main": "dist/bs-timeline.html",
+    "keywords": [
+        "polymer",
+        "web-components"
+    ],
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components"
+    ],
+    "dependencies": {
+        "polymer": "Polymer/polymer#~0.3.4",
+    	"polymer-test-tools": "Polymer/polymer-test-tools#~0.3.3",
+    	"bootstrap": "~3.2.0"
+    }
+}
