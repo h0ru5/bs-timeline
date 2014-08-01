@@ -1,6 +1,8 @@
 # &lt;bs-timeline&gt;
 
 > Element providing a responsive timeline
+> Based on
+> http://www.bootsnipp.com/snippets/featured/timeline-responsive
 
 ## Demo
 
@@ -33,20 +35,28 @@ Or [download as ZIP](https://github.com/h0ru5/bs-timeline/archive/master.zip).
 3. Start using it!
 
     ```html
-    <bs-timeline></bs-timeline>
+        <bs-timeline>
+		<bs-timeline-entry title="Geez!" time="11 hours ago until now" badge="plus">
+			<p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+		</bs-timeline-entry>
+	</bs-timeline>
     ```
 
 ## Options
 
 Attribute     | Options     | Default      | Description
 ---           | ---         | ---          | ---
-`foo`         | *string*    | `bar`        | Lorem ipsum dolor.
+`title`       | *string*    | ``           | The title
+`time`        | *string*    | ``           | The time of the event
+`badge`       | *string*    | ``           | Glyphicon to use for the entry
+
+
 
 ## Methods
 
 Method        | Parameters   | Returns     | Description
 ---           | ---          | ---         | ---
-`unicorn()`   | None.        | Nothing.    | Magic stuff appears.
+`toggle()`    | None.        | Nothing.    | Open/close the entry
 
 ## Events
 
