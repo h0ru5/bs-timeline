@@ -1,4 +1,5 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/core-collapse/core-collapse.html">
 <!--
 Elements providing a responsive timeline
 
@@ -23,20 +24,32 @@ http://www.bootsnipp.com/snippets/featured/timeline-responsive
 	</template>
 </polymer-element>
 
-<polymer-element name="bs-timeline-entry" attributes="title badge time" noscript>
+<polymer-element name="bs-timeline-entry" attributes="title badge time">
     <template>
 		<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">	
 	  	<li>
-          <div class="timeline-badge"><i class="glyphicon glyphicon-{{badge}}"></i></div>
-          <div class="timeline-panel">
+
+		<div class="timeline-badge" on-tap="{{toggleClick}}">
+			<i class="glyphicon glyphicon-{{badge}}"></i>
+		</div>
+        <core-collapse id="colly" opened horizontal>
+			<div class="timeline-panel">
 				<div class="timeline-heading">
 					<h4 class="timeline-title">{{title}}</h4>
-              		<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>{{time}}</small></p>
+              		<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> {{time}}</small></p>
             	</div>
-            	<div class="timeline-body">
-			  	<content></content>
+				<div class="timeline-body">
+			  		<content></content>
             	</div>
           	</div>
-    	</li>
+		</core-collapse>
+		</li>
 	</template>
+	<script>
+		Polymer('bs-timeline-entry', {
+			toggleClick : function(event,detail,sender) {
+				this.$.colly.toggle();
+			}
+		});
+	</script>
 </polymer-element>
