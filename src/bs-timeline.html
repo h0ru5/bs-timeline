@@ -24,7 +24,7 @@ http://www.bootsnipp.com/snippets/featured/timeline-responsive
 	</template>
 </polymer-element>
 
-<polymer-element name="bs-timeline-entry" attributes="title badge time">
+<polymer-element name="bs-timeline-entry" attributes="title badge time opened">
     <template>
 		<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">	
 	  	<li>
@@ -47,8 +47,15 @@ http://www.bootsnipp.com/snippets/featured/timeline-responsive
 	</template>
 	<script>
 		Polymer('bs-timeline-entry', {
+			opened : true,
+			title : "Lorem Ipsum",
+			badge : "plus",
 			toggleClick : function(event,detail,sender) {
-				this.$.colly.toggle();
+				this.opened = !this.opened;
+			},
+			openedChanged : function(oV,nV) {
+				console.log("opened changing " + oV + " -> " + nV);
+				this.$.colly.opened = nV;
 			}
 		});
 	</script>
