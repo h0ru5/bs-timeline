@@ -1,10 +1,12 @@
 {
   "name": "bs-timeline",
   "version": "0.0.0",
-  "description": "Element providing a responsive timeline",
+  "description": "Polymer element providing a responsive timeline, based on bootstrap",
   "keywords": [
     "polymer",
-    "web-components"
+    "web-components",
+	"bootstrap",
+	"timeline"
   ],
   "license": "MIT",
   "authors": [
