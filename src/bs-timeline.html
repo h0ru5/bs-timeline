@@ -27,7 +27,7 @@ http://www.bootsnipp.com/snippets/featured/timeline-responsive
 <polymer-element name="bs-timeline-entry" attributes="title badge time opened">
     <template>
 		<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">	
-	  	<li>
+	  	<li id="entry">
 
 		<div class="timeline-badge" on-tap="{{toggleClick}}">
 			<i class="glyphicon glyphicon-{{badge}}"></i>
@@ -50,12 +50,20 @@ http://www.bootsnipp.com/snippets/featured/timeline-responsive
 			opened : true,
 			title : "Lorem Ipsum",
 			badge : "plus",
+			inverse : false,
 			toggleClick : function(event,detail,sender) {
 				this.opened = !this.opened;
 			},
 			openedChanged : function(oV,nV) {
-				console.log("opened changing " + oV + " -> " + nV);
 				this.$.colly.opened = nV;
+			},
+			inverseChanged : function(oV,nV) {
+				var elm = this.$.entry;
+				if(nV) {
+					elm.className = "timeline-inverted";
+				} else {
+					elm.className = "";
+				}
 			}
 		});
 	</script>
