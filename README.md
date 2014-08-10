@@ -49,6 +49,7 @@ Attribute     | Options     | Default      | Description
 `title`       | *string*    | ``           | The title
 `time`        | *string*    | ``           | The time of the event
 `badge`       | *string*    | ``           | Glyphicon to use for the entry
+`opened`      | *boolean*   | `true`       | Display collapsed or opened
 
 
 
