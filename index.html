@@ -1,0 +1,253 @@
+<!DOCTYPE  html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>doc</title>
+    <style>
+      /*github.com style (c) Vasily Polovnyov <vast@whiteants.net>*/
+      pre code {
+        display: block; padding: 0.5em;
+        color: #333;
+        background: #f8f8ff
+      }
+      pre .comment,
+      pre .template_comment,
+      pre .diff .header,
+      pre .javadoc {
+        color: #998;
+        font-style: italic
+      }
+      pre .keyword,
+      pre .css .rule .keyword,
+      pre .winutils,
+      pre .javascript .title,
+      pre .nginx .title,
+      pre .subst,
+      pre .request,
+      pre .status {
+        color: #333;
+        font-weight: bold
+      }
+      pre .number,
+      pre .hexcolor,
+      pre .ruby .constant {
+        color: #099;
+      }
+      pre .string,
+      pre .tag .value,
+      pre .phpdoc,
+      pre .tex .formula {
+        color: #d14
+      }
+      pre .title,
+      pre .id {
+        color: #900;
+        font-weight: bold
+      }
+      pre .javascript .title,
+      pre .lisp .title,
+      pre .clojure .title,
+      pre .subst {
+        font-weight: normal
+      }
+      pre .class .title,
+      pre .haskell .type,
+      pre .vhdl .literal,
+      pre .tex .command {
+        color: #458;
+        font-weight: bold
+      }
+      pre .tag,
+      pre .tag .title,
+      pre .rules .property,
+      pre .django .tag .keyword {
+        color: #000080;
+        font-weight: normal
+      }
+      pre .attribute,
+      pre .variable,
+      pre .lisp .body {
+        color: #008080
+      }
+      pre .regexp {
+        color: #009926
+      }
+      pre .class {
+        color: #458;
+        font-weight: bold
+      }
+      pre .symbol,
+      pre .ruby .symbol .string,
+      pre .lisp .keyword,
+      pre .tex .special,
+      pre .prompt {
+        color: #990073
+      }
+      pre .built_in,
+      pre .lisp .title,
+      pre .clojure .built_in {
+        color: #0086b3
+      }
+      pre .preprocessor,
+      pre .pi,
+      pre .doctype,
+      pre .shebang,
+      pre .cdata {
+        color: #999;
+        font-weight: bold
+      }
+      pre .deletion {
+        background: #fdd
+      }
+      pre .addition {
+        background: #dfd
+      }
+      pre .diff .change {
+        background: #0086b3
+      }
+      pre .chunk {
+        color: #aaa
+      }
+    </style>
+  </head>
+  <body>  
+    <h1 id="-lt-bs-timeline-gt-">&lt;bs-timeline&gt;</h1>
+<blockquote>
+<p>Element providing a responsive timeline
+Based on
+<a href="http://www.bootsnipp.com/snippets/featured/timeline-responsive">http://www.bootsnipp.com/snippets/featured/timeline-responsive</a></p>
+</blockquote>
+<h2 id="demo">Demo</h2>
+<p><a href="http://h0ru5.github.io/bs-timeline">Check it live!</a></p>
+<h2 id="install">Install</h2>
+<p>Install the component using <a href="http://bower.io/">Bower</a>:</p>
+<pre><code class="lang-sh">$ bower install bs-timeline --save</code></pre>
+<p>Or <a href="https://github.com/h0ru5/bs-timeline/archive/master.zip">download as ZIP</a>.</p>
+<h2 id="usage">Usage</h2>
+<ol>
+<li><p>Import Web Components&#39; polyfill:</p>
+<pre><code class="lang-html"> &lt;script src=&quot;bower_components/platform/platform.js&quot;&gt;&lt;/script&gt;</code></pre>
+</li>
+<li><p>Import Custom Element:</p>
+<pre><code class="lang-html"> &lt;link rel=&quot;import&quot; href=&quot;bower_components/bs-timeline/dist/bs-timeline.html&quot;&gt;</code></pre>
+</li>
+<li><p>Start using it!</p>
+<pre><code class="lang-html">     &lt;bs-timeline&gt;
+     &lt;bs-timeline-entry title=&quot;Geez!&quot; time=&quot;11 hours ago until now&quot; badge=&quot;plus&quot;&gt;
+         &lt;p&gt;Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.&lt;/p&gt;
+     &lt;/bs-timeline-entry&gt;
+ &lt;/bs-timeline&gt;</code></pre>
+</li>
+</ol>
+<h2 id="options">Options</h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Options</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td><em>string</em></td>
+<td>``</td>
+<td>The title</td>
+</tr>
+<tr>
+<td><code>time</code></td>
+<td><em>string</em></td>
+<td>``</td>
+<td>The time of the event</td>
+</tr>
+<tr>
+<td><code>badge</code></td>
+<td><em>string</em></td>
+<td><code>plus</code></td>
+<td>Glyphicon to use for the entry</td>
+</tr>
+<tr>
+<td><code>opened</code></td>
+<td><em>boolean</em></td>
+<td><code>true</code></td>
+<td>Display collapsed or opened</td>
+</tr>
+<tr>
+<td><code>inverse</code></td>
+<td><em>boolean</em></td>
+<td><code>false</code></td>
+<td>Display inverted (right side)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="methods">Methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Returns</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>toggle()</code></td>
+<td>None.</td>
+<td>Nothing.</td>
+<td>Open/close the entry</td>
+</tr>
+</tbody>
+</table>
+<h2 id="events">Events</h2>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>onsomething</code></td>
+<td>Triggers when something happens.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="development">Development</h2>
+<p>In order to run it locally you&#39;ll need to fetch some dependencies and a basic server setup.</p>
+<ul>
+<li><p>Install <a href="http://bower.io/">Bower</a> &amp; <a href="http://gruntjs.com/">Grunt</a>:</p>
+<pre><code class="lang-sh">  $ [sudo] npm install -g bower grunt-cli</code></pre>
+</li>
+<li><p>Install local dependencies:</p>
+<pre><code class="lang-sh">  $ bower install &amp;&amp; npm install</code></pre>
+</li>
+<li><p>To test your project, start the development server and open <code>http://localhost:8000</code>.</p>
+<pre><code class="lang-sh">  $ grunt server</code></pre>
+</li>
+<li><p>To build the distribution files before releasing a new version.</p>
+<pre><code class="lang-sh">  $ grunt build</code></pre>
+</li>
+<li><p>To provide a live demo, send everything to <code>gh-pages</code> branch.</p>
+<pre><code class="lang-sh">  $ grunt deploy</code></pre>
+</li>
+</ul>
+<h2 id="contributing">Contributing</h2>
+<ol>
+<li>Fork it!</li>
+<li>Create your feature branch: <code>git checkout -b my-new-feature</code></li>
+<li>Commit your changes: <code>git commit -m &#39;Add some feature&#39;</code></li>
+<li>Push to the branch: <code>git push origin my-new-feature</code></li>
+<li>Submit a pull request :D</li>
+</ol>
+<h2 id="history">History</h2>
+<p>For detailed changelog, check <a href="https://github.com/h0ru5/bs-timeline/releases">Releases</a>.</p>
+<h2 id="license">License</h2>
+<p><a href="http://opensource.org/licenses/MIT">MIT License</a></p>
+
+  </body>
+</html>
