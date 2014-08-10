@@ -1,0 +1,62 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/core-collapse/core-collapse.html">
+<!--
+Elements providing a responsive timeline
+
+Based on
+http://www.bootsnipp.com/snippets/featured/timeline-responsive
+
+##### Example
+
+    <bs-timeline></bs-timeline>
+
+@element bs-timeline
+@blurb Element providing a responsive timeline
+@status alpha
+@homepage http://polymerlabs.github.io/seed-element
+-->
+<polymer-element name="bs-timeline" noscript>
+	<template>
+		<link rel="stylesheet" href="bs-timeline.css" />
+ 		<ul class="timeline">
+        	<content></content>
+    	</ul>
+	</template>
+</polymer-element>
+
+<polymer-element name="bs-timeline-entry" attributes="title badge time opened">
+    <template>
+		<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">	
+	  	<li>
+
+		<div class="timeline-badge" on-tap="{{toggleClick}}">
+			<i class="glyphicon glyphicon-{{badge}}"></i>
+		</div>
+        <core-collapse id="colly" opened horizontal>
+			<div class="timeline-panel">
+				<div class="timeline-heading">
+					<h4 class="timeline-title">{{title}}</h4>
+              		<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> {{time}}</small></p>
+            	</div>
+				<div class="timeline-body">
+			  		<content></content>
+            	</div>
+          	</div>
+		</core-collapse>
+		</li>
+	</template>
+	<script>
+		Polymer('bs-timeline-entry', {
+			opened : true,
+			title : "Lorem Ipsum",
+			badge : "plus",
+			toggleClick : function(event,detail,sender) {
+				this.opened = !this.opened;
+			},
+			openedChanged : function(oV,nV) {
+				console.log("opened changing " + oV + " -> " + nV);
+				this.$.colly.opened = nV;
+			}
+		});
+	</script>
+</polymer-element>
