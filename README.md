@@ -1,7 +1,3 @@
----
-title: &lt;bs-timeline&gt;
-layout: post
----
 # &lt;bs-timeline&gt;
 
 > Element providing a responsive timeline
