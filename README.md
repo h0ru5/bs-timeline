@@ -29,7 +29,7 @@ Or [download as ZIP](https://github.com/h0ru5/bs-timeline/archive/master.zip).
 2. Import Custom Element:
 
     ```html
-    <link rel="import" href="bower_components/bs-timeline/dist/bs-timeline.html">
+    <link rel="import" href="bower_components/bs-timeline/bs-timeline.html">
     ```
 
 3. Start using it!
