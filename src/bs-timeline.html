@@ -1,5 +1,5 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="../bower_components/core-collapse/core-collapse.html">
+<link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
 <!--
 Elements providing a responsive timeline
 
@@ -15,56 +15,83 @@ http://www.bootsnipp.com/snippets/featured/timeline-responsive
 @status alpha
 @homepage http://polymerlabs.github.io/seed-element
 -->
-<polymer-element name="bs-timeline" noscript>
-	<template>
-		<link rel="stylesheet" href="bs-timeline.css" />
+<dom-module id="bs-timeline">
+  <link rel="import" type="css" href="bs-timeline.css">
+  <template>
  		<ul class="timeline">
         	<content></content>
     	</ul>
 	</template>
-</polymer-element>
+  <script>
+    Polymer({ is: 'bs-timeline' });
+  </script>
+</dom-module>
 
-<polymer-element name="bs-timeline-entry" attributes="title badge time opened">
-    <template>
-		<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">	
+<dom-module id="bs-timeline-entry">
+  <link rel="import" type="css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <template>
 	  	<li id="entry">
 
-		<div class="timeline-badge" on-tap="{{toggleClick}}">
-			<i class="glyphicon glyphicon-{{badge}}"></i>
+		<div class="timeline-badge" on-tap="toggleClick">
+			<i class$="{{_computeClass(badge)}}"></i>
 		</div>
-        <core-collapse id="colly" opened horizontal>
+        <iron-collapse id="colly" opened="" horizontal="">
 			<div class="timeline-panel">
 				<div class="timeline-heading">
 					<h4 class="timeline-title">{{title}}</h4>
-              		<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> {{time}}</small></p>
+              		<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <span>{{time}}</span></small></p>
             	</div>
 				<div class="timeline-body">
 			  		<content></content>
             	</div>
           	</div>
-		</core-collapse>
+		</iron-collapse>
 		</li>
 	</template>
-	<script>
-		Polymer('bs-timeline-entry', {
-			opened : true,
-			title : "Lorem Ipsum",
-			badge : "plus",
-			inverse : false,
-			toggleClick : function(event,detail,sender) {
-				this.opened = !this.opened;
-			},
-			openedChanged : function(oV,nV) {
-				this.$.colly.opened = nV;
-			},
-			inverseChanged : function(oV,nV) {
-				var elm = this.$.entry;
-				if(nV) {
-					elm.className = "timeline-inverted";
-				} else {
-					elm.className = "";
-				}
-			}
-		});
-	</script>
-</polymer-element>
+  <script>
+    Polymer({
+      is: 'bs-timeline-entry',
+      properties: {
+        badge: {
+          type: String,
+          value: 'plus',
+          notify: true
+        },
+        inverse: {
+          type: Boolean,
+          value: false,
+          observer: 'inverseChanged'
+        },
+        opened: {
+          type: Boolean,
+          value: true,
+          notify: true,
+          observer: 'openedChanged'
+        },
+        time: { notify: true },
+        title: {
+          type: String,
+          value: 'Lorem Ipsum',
+          notify: true
+        }
+      },
+      toggleClick: function (event, detail, sender) {
+        this.opened = !this.opened;
+      },
+      openedChanged: function (nV, oV) {
+        this.set('$.colly.opened', nV);
+      },
+      inverseChanged: function (nV, oV) {
+        var elm = this.$.entry;
+        if (nV) {
+          elm.className = 'timeline-inverted';
+        } else {
+          elm.className = '';
+        }
+      },
+      _computeClass: function (badge) {
+        return 'glyphicon glyphicon-' + badge;
+      }
+    });
+  </script>
+</dom-module>
