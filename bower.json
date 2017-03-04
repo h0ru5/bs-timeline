@@ -1,6 +1,6 @@
 {
   "name": "bs-timeline",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "Polymer element providing a responsive timeline, based on bootstrap",
   "keywords": [
     "polymer",
