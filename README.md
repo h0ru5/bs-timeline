@@ -13,7 +13,7 @@
 Install the component using [Bower](http://bower.io/):
 
 ```sh
-$ bower install bs-timeline --save
+$ bower install oce-timeline --save
 ```
 
 Or [download as ZIP](https://github.com/h0ru5/bs-timeline/archive/master.zip).
@@ -29,7 +29,7 @@ Or [download as ZIP](https://github.com/h0ru5/bs-timeline/archive/master.zip).
 2. Import Custom Element:
 
     ```html
-    <link rel="import" href="bower_components/bs-timeline/dist/bs-timeline.html">
+    <link rel="import" href="bower_components/bs-timeline/bs-timeline.html">
     ```
 
 3. Start using it!
